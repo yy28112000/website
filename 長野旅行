@@ -1,0 +1,489 @@
+from pathlib import Path
+
+from urllib.parse import quote
+
+def maps_link(query: str) -> str:
+
+    return "https://www.google.com/maps/search/?api=1&query=" + quote(query)
+
+places = {
+
+    "軽井沢駅": ("〒389-0102 長野県北佐久郡軽井沢町軽井沢", maps_link("軽井沢駅")),
+
+    "旧軽井沢銀座": ("長野県北佐久郡軽井沢町軽井沢", maps_link("旧軽井沢銀座通り 長野県北佐久郡軽井沢町軽井沢")),
+
+    "旧軽井沢駐車場": ("〒389-0102 長野県北佐久郡軽井沢町大字軽井沢207-1", maps_link("旧軽井沢駐車場 長野県北佐久郡軽井沢町大字軽井沢207-1")),
+
+    "白糸の滝": ("長野県北佐久郡軽井沢町長倉（小瀬）", maps_link("白糸の滝 軽井沢町長倉 小瀬")),
+
+    "ANAホテル": ("〒377-1412 群馬県吾妻郡長野原町北軽井沢2032-16", maps_link("ANAホリデイ・イン リゾート軽井沢 群馬県吾妻郡長野原町北軽井沢2032-16")),
+
+    "タリアセン": ("〒389-0111 長野県北佐久郡軽井沢町大字長倉217", maps_link("軽井沢タリアセン 長野県北佐久郡軽井沢町大字長倉217")),
+
+    "高原教会": ("長野県北佐久郡軽井沢町長倉（星野）", maps_link("軽井沢高原教会")),
+
+    "石の教会": ("長野県北佐久郡軽井沢町長倉（星野）", maps_link("石の教会 内村鑑三記念堂")),
+
+    "雲場池": ("長野県北佐久郡軽井沢町軽井沢", maps_link("雲場池 長野県北佐久郡軽井沢町")),
+
+    "しげの屋": ("長野県北佐久郡軽井沢町峠町2", maps_link("元祖力餅 しげの屋 長野県北佐久郡軽井沢町峠町2")),
+
+    "川上庵": ("長野県北佐久郡軽井沢町軽井沢6-10", maps_link("軽井沢 川上庵 本店")),
+
+    "かぎもとや": ("長野県北佐久郡軽井沢町長倉3041-1", maps_link("かぎもとや 中軽井沢本店")),
+
+    "風車": ("〒506-1422 岐阜県高山市奥飛騨温泉郷中尾37", maps_link("中尾高原ホテル風車 岐阜県高山市奥飛騨温泉郷中尾37")),
+
+    "あかんだな": ("〒506-1433 岐阜県高山市奥飛騨温泉郷平湯791-38", maps_link("あかんだな駐車場 岐阜県高山市奥飛騨温泉郷平湯791-38")),
+
+    "上高地BT": ("長野県松本市安曇上高地", maps_link("上高地バスターミナル")),
+
+    "松本駅": ("〒390-0815 長野県松本市深志1丁目", maps_link("松本駅")),
+
+}
+
+def place_box(key, tel=None, note=None):
+
+    addr, link = places[key]
+
+    extra = ""
+
+    if tel:
+
+        extra += f'<span>☎ <a href="tel:{tel.replace("-", "")}">{tel}</a></span>'
+
+    if note:
+
+        extra += f'<span>{note}</span>'
+
+    return f"""
+
+    <div class="place">
+
+      <span>📍 {addr}</span>
+
+      {extra}
+
+      <a class="map-btn" href="{link}" target="_blank" rel="noopener">Googleマップで開く</a>
+
+    </div>"""
+
+html = f"""<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<meta name="theme-color" content="#3f6b55">
+
+<title>軽井沢・上高地 3日間旅行プラン｜2026年7月18日〜20日</title>
+
+<style>
+
+:root{{--bg:#f5f7f3;--card:#fff;--text:#26332b;--muted:#647067;--green:#3f6b55;--light:#e8f0ea;--accent:#b9824b;--line:#d9e1da;--warn:#fff5df;--blue:#eaf2fb}}
+
+*{{box-sizing:border-box}}
+
+html{{scroll-behavior:smooth}}
+
+body{{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;color:var(--text);background:var(--bg);line-height:1.6}}
+
+.hero{{padding:36px 20px 28px;color:#fff;background:linear-gradient(135deg,#335b48,#62836f)}}
+
+.wrap{{max-width:920px;margin:auto;padding:0 16px}}
+
+h1{{margin:0 0 8px;font-size:clamp(27px,7vw,42px);line-height:1.2}}
+
+.subtitle{{margin:0;opacity:.92}}
+
+.summary{{margin-top:20px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}}
+
+.summary div{{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.2);padding:12px;border-radius:14px;font-size:14px}}
+
+nav{{position:sticky;top:0;z-index:5;background:rgba(245,247,243,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}}
+
+nav .wrap{{display:flex;gap:8px;overflow:auto;padding-top:10px;padding-bottom:10px}}
+
+nav a{{white-space:nowrap;text-decoration:none;color:var(--green);background:white;border:1px solid var(--line);border-radius:999px;padding:7px 12px;font-size:13px;font-weight:700}}
+
+main{{padding:22px 0 50px}}
+
+.day{{background:var(--card);border-radius:20px;padding:22px;margin-bottom:20px;box-shadow:0 5px 22px rgba(42,64,50,.07)}}
+
+.day-header{{display:flex;gap:12px;align-items:flex-start;margin-bottom:18px}}
+
+.date{{min-width:72px;text-align:center;color:white;background:var(--green);border-radius:14px;padding:9px 8px;font-weight:700}}
+
+.date small{{display:block;font-size:12px;font-weight:500}}
+
+h2{{margin:0;font-size:23px}}
+
+h3{{margin:22px 0 10px;font-size:18px}}
+
+.theme{{color:var(--muted);font-size:14px}}
+
+.item{{display:grid;grid-template-columns:78px 1fr;gap:14px;position:relative;padding:0 0 18px}}
+
+.item:not(:last-child)::after{{content:"";position:absolute;left:88px;top:30px;bottom:0;width:2px;background:var(--line)}}
+
+.time{{font-weight:800;color:var(--green);padding-top:2px;white-space:nowrap}}
+
+.content{{background:#fafbf9;border:1px solid #edf0ed;border-radius:13px;padding:12px 14px;position:relative}}
+
+.content::before{{content:"";position:absolute;width:10px;height:10px;border-radius:50%;background:var(--accent);left:-21px;top:11px;box-shadow:0 0 0 4px white}}
+
+.content strong{{display:block;margin-bottom:3px}}
+
+.content p{{margin:4px 0;color:var(--muted);font-size:14px}}
+
+.tag{{display:inline-block;margin:5px 5px 0 0;padding:3px 8px;border-radius:999px;background:var(--light);color:var(--green);font-size:12px;font-weight:700}}
+
+.optional{{border-left:4px solid var(--accent);background:#fffaf4}}
+
+.place{{display:flex;flex-wrap:wrap;gap:7px 10px;align-items:center;margin-top:9px;padding-top:9px;border-top:1px dashed var(--line);font-size:12px;color:var(--muted)}}
+
+.place span{{width:100%}}
+
+.place a{{color:var(--green)}}
+
+.map-btn{{display:inline-block;text-decoration:none!important;color:white!important;background:var(--green);padding:7px 10px;border-radius:9px;font-weight:700}}
+
+.note{{padding:15px 16px;background:var(--warn);border-radius:14px;margin-top:14px;font-size:14px}}
+
+.info{{padding:15px 16px;background:var(--blue);border-radius:14px;margin-bottom:18px;font-size:14px}}
+
+.check-grid{{display:grid;grid-template-columns:repeat(2,1fr);gap:9px}}
+
+.check{{display:flex;gap:9px;align-items:flex-start;background:#fafbf9;border:1px solid var(--line);padding:11px;border-radius:12px;font-size:14px}}
+
+.check input{{width:19px;height:19px;accent-color:var(--green);flex:none;margin-top:1px}}
+
+.check:has(input:checked){{opacity:.55;text-decoration:line-through}}
+
+.packing{{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}}
+
+.pack-card{{background:#fafbf9;border:1px solid var(--line);padding:14px;border-radius:14px}}
+
+.pack-card b{{display:block;margin-bottom:8px}}
+
+.pack-card label{{display:block;font-size:14px;padding:3px 0}}
+
+.pack-card input{{accent-color:var(--green)}}
+
+footer{{text-align:center;color:var(--muted);font-size:12px;padding:4px 15px 35px}}
+
+@media(max-width:620px){{
+
+.summary,.check-grid,.packing{{grid-template-columns:1fr}}
+
+.day{{padding:17px}}
+
+.item{{grid-template-columns:68px 1fr;gap:12px}}
+
+.item:not(:last-child)::after{{left:77px}}
+
+.content::before{{left:-19px}}
+
+}}
+
+@media print{{body{{background:white}}nav{{display:none}}.hero{{background:white;color:black;padding:10px 0}}.summary div{{color:black;border:1px solid #ccc}}.day{{box-shadow:none;border:1px solid #ddd;break-inside:avoid}}}}
+
+</style>
+
+</head>
+
+<body>
+
+<header class="hero">
+
+<div class="wrap">
+
+<h1>軽井沢・上高地<br>3日間旅行プラン</h1>
+
+<p class="subtitle">2026年7月18日（土）〜7月20日（月・祝）</p>
+
+<div class="summary">
+
+<div><b>1日目</b><br>旧軽井沢・白糸の滝</div>
+
+<div><b>2日目</b><br>タリアセン・教会・中尾高原へ</div>
+
+<div><b>3日目</b><br>上高地を優先・16:54発</div>
+
+</div>
+
+</div>
+
+</header>
+
+<nav><div class="wrap">
+
+<a href="#day1">1日目</a><a href="#day2">2日目</a><a href="#day3">3日目</a><a href="#packing">持ち物</a><a href="#finalcheck">最終確認</a>
+
+</div></nav>
+
+<main class="wrap">
+
+<div class="info"><b>使い方：</b>住所の下にある「Googleマップで開く」を押すと地図が開きます。チェックボックスの状態は、このHTMLを同じブラウザで開いている間は自動保存されます。</div>
+
+<section class="day" id="day1">
+
+<div class="day-header"><div class="date">7/18<small>土曜日</small></div><div><h2>軽井沢の街歩きと白糸の滝</h2><div class="theme">19:30のホテルビュッフェを優先</div></div></div>
+
+<div class="item"><div class="time">13:00</div><div class="content"><strong>軽井沢駅到着・レンタカー受取</strong><p>荷物を積み、13:15頃出発。</p>{place_box("軽井沢駅")}</div></div>
+
+<div class="item"><div class="time">13:20<br>〜15:10</div><div class="content"><strong>旧軽井沢銀座通り</strong><p>食べ歩き、散策、お土産。昼食は軽めに済ませる。</p><span class="tag">モカソフト</span><span class="tag">パン</span><span class="tag">腸詰</span>{place_box("旧軽井沢銀座")}<p><b>駐車場候補</b></p>{place_box("旧軽井沢駐車場")}</div></div>
+
+<div class="item"><div class="time">15:10</div><div class="content"><strong>白糸の滝へ移動</strong><p>混雑・駐車待ち込みで約30分。</p></div></div>
+
+<div class="item"><div class="time">15:40<br>〜16:20</div><div class="content"><strong>白糸の滝</strong><p>写真と短めの散策。滑りやすい場所に注意。</p>{place_box("白糸の滝")}</div></div>
+
+<div class="item"><div class="time">16:20</div><div class="content"><strong>ホテルへ出発</strong><p>連休の渋滞を見込み、約1時間30分確保。</p></div></div>
+
+<div class="item"><div class="time">17:50頃</div><div class="content"><strong>ANAホリデイ・イン リゾート軽井沢</strong><p>チェックイン、温泉、休憩。</p>{place_box("ANAホテル", "0279-84-1441")}</div></div>
+
+<div class="item"><div class="time">19:30</div><div class="content"><strong>ホテルビュッフェ</strong></div></div>
+
+<h3>1日目チェック</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" data-save="d1-1">レンタカー受取・傷の確認</label>
+
+<label class="check"><input type="checkbox" data-save="d1-2">ホテルの夕食時間を再確認</label>
+
+<label class="check"><input type="checkbox" data-save="d1-3">旧軽井沢の駐車場所を決める</label>
+
+<label class="check"><input type="checkbox" data-save="d1-4">白糸の滝へ行く前にトイレ</label>
+
+<label class="check"><input type="checkbox" data-save="d1-5">16:20を目安にホテルへ出発</label>
+
+<label class="check"><input type="checkbox" data-save="d1-6">車内に貴重品を残さない</label>
+
+</div>
+
+</section>
+
+<section class="day" id="day2">
+
+<div class="day-header"><div class="date">7/19<small>日曜日</small></div><div><h2>軽井沢観光から中尾高原へ</h2><div class="theme">観光を午前にまとめ、ホテル到着を優先</div></div></div>
+
+<div class="item"><div class="time">9:00</div><div class="content"><strong>ホテル出発</strong></div></div>
+
+<div class="item"><div class="time">9:30<br>〜10:50</div><div class="content"><strong>軽井沢タリアセン</strong><p>湖畔散策を中心に約1時間20分。</p>{place_box("タリアセン", "0267-46-6161")}</div></div>
+
+<div class="item"><div class="time">11:10<br>〜12:00</div><div class="content"><strong>軽井沢高原教会・石の教会</strong><p>石の教会は当日の見学可否を確認。</p>{place_box("高原教会")}{place_box("石の教会", "0267-45-2288")}</div></div>
+
+<div class="item"><div class="time">12:10頃</div><div class="content optional"><strong>雲場池（時間があれば）</strong><p>予定が押したら省略し、昼食と移動を優先。</p>{place_box("雲場池")}</div></div>
+
+<div class="item"><div class="time">12:30頃</div><div class="content"><strong>ランチ：しげの屋</strong><p>長時間待つ場合は別の蕎麦店へ。</p>{place_box("しげの屋")}<p><b>代案</b></p>{place_box("川上庵")}{place_box("かぎもとや")}</div></div>
+
+<div class="item"><div class="time">14:00目安</div><div class="content"><strong>軽井沢を出発</strong><p>休憩込みで中尾高原へ。遅くともこの時間を目標に出発。</p></div></div>
+
+<div class="item"><div class="time">17:30頃</div><div class="content"><strong>中尾高原ホテル 風車</strong><p>チェックイン、温泉、夕食。</p>{place_box("風車", "0578-89-3201")}</div></div>
+
+<div class="note"><b>調整ルール：</b>予定が押したら、①雲場池を削る → ②蕎麦の待ち時間を切る。ホテル到着を優先。</div>
+
+<h3>2日目チェック</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" data-save="d2-1">タリアセンの営業状況を確認</label>
+
+<label class="check"><input type="checkbox" data-save="d2-2">石の教会の見学可否を確認</label>
+
+<label class="check"><input type="checkbox" data-save="d2-3">蕎麦店の混雑を確認</label>
+
+<label class="check"><input type="checkbox" data-save="d2-4">ガソリン残量を確認</label>
+
+<label class="check"><input type="checkbox" data-save="d2-5">14:00を目安に軽井沢を出発</label>
+
+<label class="check"><input type="checkbox" data-save="d2-6">ホテルへ遅れる場合は連絡</label>
+
+</div>
+
+</section>
+
+<section class="day" id="day3">
+
+<div class="day-header"><div class="date">7/20<small>月・祝</small></div><div><h2>上高地をじっくり楽しむ</h2><div class="theme">松本観光は余裕がある場合のみ。16:30松本駅着を厳守</div></div></div>
+
+<div class="item"><div class="time">8:00<br>または<br>8:30</div><div class="content"><strong>ホテル朝食</strong><p>朝食開始時刻に合わせて8:40〜9:10頃終了。</p></div></div>
+
+<div class="item"><div class="time">9:10頃</div><div class="content"><strong>ホテル出発</strong><p>8:00開始なら可能な範囲で前倒し。</p></div></div>
+
+<div class="item"><div class="time">9:30頃</div><div class="content"><strong>あかんだな駐車場</strong><p>ここでシャトルバスへ乗り換え。上高地まで約35分。</p>{place_box("あかんだな", "0578-89-3477")}</div></div>
+
+<div class="item"><div class="time">10:15頃</div><div class="content"><strong>上高地到着</strong>{place_box("上高地BT")}</div></div>
+
+<div class="item"><div class="time">10:15<br>〜13:15</div><div class="content"><strong>上高地散策</strong><p>河童橋 → ウェストン碑 → 岳沢湿原 → 小梨平 → 河童橋。</p><span class="tag">明神池は今回は見送り</span><span class="tag">雨天時は短縮</span></div></div>
+
+<div class="item"><div class="time">13:15<br>〜14:00</div><div class="content"><strong>河童橋周辺で昼食</strong><p>混雑時は軽食に変更し、14:00頃の出発を守る。</p></div></div>
+
+<div class="item"><div class="time">14:00頃</div><div class="content"><strong>上高地を出発</strong><p>シャトルバスで駐車場へ。</p></div></div>
+
+<div class="item"><div class="time">14:40頃</div><div class="content"><strong>駐車場出発・松本駅へ</strong><p>給油、レンタカー返却、荷物整理を含む。</p></div></div>
+
+<div class="item"><div class="time">16:00頃</div><div class="content"><strong>松本駅周辺到着目標</strong></div></div>
+
+<div class="item"><div class="time">16:30</div><div class="content"><strong>松本駅に到着</strong><p>16:54発に備える。</p>{place_box("松本駅")}</div></div>
+
+<div class="item"><div class="time">余裕時のみ</div><div class="content optional"><strong>松本観光</strong><p>道路・バス・返却がすべて順調で、十分な余裕がある場合だけ。基本は直行。</p></div></div>
+
+<div class="note"><b>最重要：</b>バス待ちや昼食で遅れたら、松本観光は完全に削除。14:00頃には上高地を出発する。</div>
+
+<h3>3日目チェック</h3>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" data-save="d3-1">上高地の天気・バス運行を確認</label>
+
+<label class="check"><input type="checkbox" data-save="d3-2">雨具・飲料・帽子を持つ</label>
+
+<label class="check"><input type="checkbox" data-save="d3-3">車に不要な荷物を置く</label>
+
+<label class="check"><input type="checkbox" data-save="d3-4">帰りのバス時刻を確認</label>
+
+<label class="check"><input type="checkbox" data-save="d3-5">14:00頃に上高地を出発</label>
+
+<label class="check"><input type="checkbox" data-save="d3-6">給油・返却場所をナビ登録</label>
+
+<label class="check"><input type="checkbox" data-save="d3-7">16:30までに松本駅へ</label>
+
+<label class="check"><input type="checkbox" data-save="d3-8">新幹線の切符・QRを準備</label>
+
+</div>
+
+</section>
+
+<section class="day" id="packing">
+
+<div class="day-header"><div class="date">🎒<small>準備</small></div><div><h2>持ち物リスト</h2><div class="theme">山と街歩きの両方に対応</div></div></div>
+
+<div class="packing">
+
+<div class="pack-card"><b>絶対必要</b>
+
+<label><input type="checkbox" data-save="p1"> 財布・現金・カード</label>
+
+<label><input type="checkbox" data-save="p2"> 身分証・免許証</label>
+
+<label><input type="checkbox" data-save="p3"> スマホ・充電器</label>
+
+<label><input type="checkbox" data-save="p4"> モバイルバッテリー</label>
+
+<label><input type="checkbox" data-save="p5"> 新幹線の切符・予約画面</label>
+
+<label><input type="checkbox" data-save="p6"> ホテル・レンタカー予約情報</label>
+
+</div>
+
+<div class="pack-card"><b>上高地・屋外</b>
+
+<label><input type="checkbox" data-save="p7"> 歩きやすいスニーカー</label>
+
+<label><input type="checkbox" data-save="p8"> 折りたたみ傘またはレインウェア</label>
+
+<label><input type="checkbox" data-save="p9"> 薄手の羽織り</label>
+
+<label><input type="checkbox" data-save="p10"> 帽子・日焼け止め</label>
+
+<label><input type="checkbox" data-save="p11"> 虫よけ</label>
+
+<label><input type="checkbox" data-save="p12"> 飲料・小さなお菓子</label>
+
+</div>
+
+<div class="pack-card"><b>車・移動</b>
+
+<label><input type="checkbox" data-save="p13"> ETCカード</label>
+
+<label><input type="checkbox" data-save="p14"> 車載充電ケーブル</label>
+
+<label><input type="checkbox" data-save="p15"> サングラス</label>
+
+<label><input type="checkbox" data-save="p16"> 酔い止め</label>
+
+<label><input type="checkbox" data-save="p17"> ウェットティッシュ</label>
+
+<label><input type="checkbox" data-save="p18"> ゴミ袋</label>
+
+</div>
+
+<div class="pack-card"><b>宿泊・身だしなみ</b>
+
+<label><input type="checkbox" data-save="p19"> 着替え・下着</label>
+
+<label><input type="checkbox" data-save="p20"> 化粧品・スキンケア</label>
+
+<label><input type="checkbox" data-save="p21"> 常備薬</label>
+
+<label><input type="checkbox" data-save="p22"> コンタクト・眼鏡</label>
+
+<label><input type="checkbox" data-save="p23"> 温泉後のヘアケア用品</label>
+
+<label><input type="checkbox" data-save="p24"> 小さめの散策バッグ</label>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="day" id="finalcheck">
+
+<div class="day-header"><div class="date">✓<small>前日</small></div><div><h2>旅行前の最終確認</h2></div></div>
+
+<div class="check-grid">
+
+<label class="check"><input type="checkbox" data-save="f1">3日間の天気予報を確認</label>
+
+<label class="check"><input type="checkbox" data-save="f2">ホテルの朝夕食時間を確認</label>
+
+<label class="check"><input type="checkbox" data-save="f3">レンタカー受取・返却店を確認</label>
+
+<label class="check"><input type="checkbox" data-save="f4">上高地バスの最新運行情報を確認</label>
+
+<label class="check"><input type="checkbox" data-save="f5">石の教会の案内を確認</label>
+
+<label class="check"><input type="checkbox" data-save="f6">地図をオフライン保存</label>
+
+<label class="check"><input type="checkbox" data-save="f7">緊急連絡先を共有</label>
+
+<label class="check"><input type="checkbox" data-save="f8">スマホとバッテリーを満充電</label>
+
+</div>
+
+</section>
+
+</main>
+
+<footer>住所・時刻・運行状況は変更される場合があります。出発前と当日に公式情報を再確認してください。</footer>
+
+<script>
+
+document.querySelectorAll('input[data-save]').forEach(cb => {{
+
+  const key = 'trip-' + cb.dataset.save;
+
+  cb.checked = localStorage.getItem(key) === '1';
+
+  cb.addEventListener('change', () => localStorage.setItem(key, cb.checked ? '1' : '0'));
+
+}});
+
+</script>
+
+</body>
+
+</html>"""
+
+path = Path("/mnt/data/karuizawa_kamikochi_trip_plan_2026_updated.html")
+
+path.write_text(html, encoding="utf-8")
+
+print(path)
