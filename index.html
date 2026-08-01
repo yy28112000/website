@@ -13,55 +13,34 @@
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{margin:0;font-family:
-"Hiragino Sans",
-"Yu Gothic",
-"SF Pro Display",
-"Helvetica Neue",
-sans-serif;
-
-font-weight:400;
-
-color:#2d2d2d;
-
-line-height:1.8;
-
+body{margin:0;font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Yu Gothic",Meiryo,sans-serif;font-weight:400;background:var(--bg);color:var(--ink);line-height:1.7}
 a{color:inherit;text-decoration:none}
 button{font:inherit}
 .hero{padding:54px 20px 42px;background:linear-gradient(150deg,#dce8db 0%,#f6ead4 58%,#eee7dc 100%);border-bottom:1px solid rgba(79,115,93,.15)}
 .wrap{max-width:980px;margin:auto}
-.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--green)}
-h1{font-size:clamp(34px,7vw,58px);line-height:1.1;margin:8px 0 14px;letter-spacing:-.035em}
+.eyebrow{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;color:var(--green)}
+h1{font-size:clamp(34px,7vw,58px);line-height:1.1;margin:8px 0 14px;letter-spacing:-.02em;font-weight:600}
 .lead{font-size:16px;color:#4e5f57;max-width:760px;margin:0}
-.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.badge{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);font-size:12px;font-weight:700}
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:20px}.badge{padding:7px 12px;border-radius:999px;background:rgba(255,255,255,.66);border:1px solid rgba(255,255,255,.9);font-size:12px;font-weight:500}
 main{padding:22px 16px 72px}.notice{background:#fff8e8;border:1px solid #efd9a9;border-left:5px solid #df9d37;padding:15px 16px;border-radius:16px;margin:0 0 18px}.notice strong{color:#815607}
 .switch-shell{position:sticky;top:10px;z-index:20;margin:0 auto 22px;padding:6px;background:rgba(255,253,249,.86);backdrop-filter:blur(14px);border:1px solid rgba(79,115,93,.15);border-radius:18px;box-shadow:0 10px 30px rgba(35,52,44,.10);display:grid;grid-template-columns:1fr 1fr;gap:6px}
-.plan-tab{border:0;background:transparent;color:var(--muted);padding:12px 10px;border-radius:13px;cursor:pointer;font-weight:800;transition:.28s ease}
+.plan-tab{border:0;background:transparent;color:var(--muted);padding:12px 10px;border-radius:13px;cursor:pointer;font-weight:600;transition:.28s ease}
 .plan-tab span{display:block;font-size:11px;font-weight:600;margin-top:1px}.plan-tab.active{background:var(--green);color:#fff;box-shadow:0 7px 18px rgba(79,115,93,.25)}
 .section{margin:28px 0}.section h2{font-size:24px;margin:0 0 14px;letter-spacing:-.02em}
 .plan-panel{display:none}.plan-panel.active{display:block;animation:panelIn .42s cubic-bezier(.2,.75,.25,1)}
 @keyframes panelIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
 .plan-hero{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);margin-bottom:16px}
-.plan-label{font-size:13px;
-
-font-weight:500;
-
-letter-spacing:3px;
-
-color:#4C8DFF;
-
-text-transform:uppercase;
-}.plan-title{font-size:25px;font-weight:600;margin:5px 0 4px}.plan-desc{color:var(--muted);margin:0 0 14px}
-.route-chips{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.chip{background:var(--light);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:800}.arrow{color:#91a198;font-size:12px}
+.plan-label{font-size:12px;font-weight:600;letter-spacing:.12em;color:var(--green)}.plan-title{font-size:25px;font-weight:600;margin:5px 0 4px}.plan-desc{color:var(--muted);margin:0 0 14px}
+.route-chips{display:flex;gap:7px;flex-wrap:wrap;align-items:center}.chip{background:var(--light);padding:7px 11px;border-radius:999px;font-size:12px;font-weight:500}.arrow{color:#91a198;font-size:12px}
 .timeline{position:relative}.stop{position:relative;margin-bottom:13px;background:var(--card);border:1px solid var(--line);border-radius:19px;box-shadow:0 8px 22px rgba(39,60,48,.06);overflow:hidden}
 .stop-head{width:100%;border:0;background:transparent;text-align:left;display:grid;grid-template-columns:82px 1fr 28px;gap:12px;padding:18px;align-items:center;cursor:pointer;color:inherit}
-.time{font-size:15px;font-weight:900;color:var(--green);line-height:1.3}.place{font-size:18px;font-weight:900;line-height:1.35}.meta{font-size:12px;color:var(--muted);margin-top:3px}.chev{font-size:20px;color:#8a9991;transition:.25s}.stop.open .chev{transform:rotate(180deg)}
+.time{font-size:15px;font-weight:600;color:var(--green);line-height:1.3}.place{font-size:18px;font-weight:600;line-height:1.35}.meta{font-size:12px;color:var(--muted);margin-top:3px}.chev{font-size:20px;color:#8a9991;transition:.25s}.stop.open .chev{transform:rotate(180deg)}
 .stop-body{max-height:0;overflow:hidden;transition:max-height .36s ease}.stop-inner{padding:0 18px 18px 112px}.tips{background:#f4f8f4;padding:12px 13px;border-radius:12px;font-size:14px}.drive{margin-top:9px;font-size:12px;color:var(--muted);font-weight:700}
-.map-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 12px;border-radius:11px;background:#edf3ee;font-size:13px;font-weight:800;color:#3d604b}
+.map-btn{display:inline-flex;align-items:center;gap:6px;margin-top:10px;padding:9px 12px;border-radius:11px;background:#edf3ee;font-size:13px;font-weight:600;color:#3d604b}
 .card-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}.card{background:var(--card);border:1px solid var(--line);border-radius:19px;padding:18px;box-shadow:0 8px 22px rgba(39,60,48,.05)}.card h3{font-size:17px;margin:0 0 6px}.address{font-size:13px;color:#53645b;margin-bottom:8px}.card ul{margin:7px 0 0;padding-left:20px}.card li{margin:3px 0}
 .food-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px}.highlight{background:#edf4ed;border-radius:13px;padding:13px 14px;margin:10px 0;font-size:14px}
 .checklist{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}.check-item{display:flex;gap:10px;align-items:flex-start;background:#f8faf7;border:1px solid #e5ebe5;border-radius:12px;padding:10px 12px;cursor:pointer}.check-item input{margin-top:5px;accent-color:var(--green)}.check-item.checked span{text-decoration:line-through;color:#94a098}
-.utility-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.mini-btn{border:1px solid var(--line);background:var(--card);padding:9px 12px;border-radius:11px;cursor:pointer;font-weight:800;color:#496052}
+.utility-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}.mini-btn{border:1px solid var(--line);background:var(--card);padding:9px 12px;border-radius:11px;cursor:pointer;font-weight:600;color:#496052}
 .footer{margin-top:34px;border-top:1px solid var(--line);padding-top:18px;color:var(--muted);font-size:12px}
 .top-btn{position:fixed;right:16px;bottom:18px;width:46px;height:46px;border:0;border-radius:50%;background:var(--green);color:#fff;font-size:20px;box-shadow:0 8px 24px rgba(79,115,93,.3);cursor:pointer;opacity:0;pointer-events:none;transition:.25s}.top-btn.show{opacity:1;pointer-events:auto}
 @media(max-width:720px){.hero{padding:38px 18px 32px}.card-grid,.food-grid,.checklist{grid-template-columns:1fr}.stop-head{grid-template-columns:74px 1fr 24px;padding:15px}.stop-inner{padding:0 15px 15px}.switch-shell{top:7px}.plan-title{font-size:22px}}
@@ -91,8 +70,7 @@ text-transform:uppercase;
       <article class="stop"><button class="stop-head"><div class="time">12:35<br>〜14:20</div><div><div class="place">のじまスコーラ</div><div class="meta">昼食・校舎内・ベーカリー</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner"><div class="tips">到着したら先にランチ受付。動物園は13:00〜14:00が休憩時間のため、食後の14:00以降が見やすい。</div><div class="drive">次へ：約25〜35分</div><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%81%AE%E3%81%98%E3%81%BE%E3%82%B9%E3%82%B3%E3%83%BC%E3%83%A9">↗ Google Maps</a></div></div></article>
       <article class="stop"><button class="stop-head"><div class="time">14:50<br>〜15:35</div><div><div class="place">伊弉諾神宮</div><div class="meta">木陰で静かに参拝</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner"><div class="tips">夫婦大楠、本殿、御守・御朱印を中心に。境内でも水分補給を忘れない。</div><div class="drive">次へ：約45〜55分</div><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E4%BC%8A%E5%BC%89%E8%AB%BE%E7%A5%9E%E5%AE%AE">↗ Google Maps</a></div></div></article>
       <article class="stop"><button class="stop-head"><div class="time">16:25<br>〜17:00</div><div><div class="place">うずの丘 大鳴門橋記念館</div><div class="meta">おっ玉葱・展望台・ショップ</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner"><div class="tips">バーガー店は通常16:00まで。到着が遅い日は写真とお土産を優先し、16:55までに車へ。</div><a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%81%86%E3%81%9A%E3%81%AE%E4%B8%98%20%E5%A4%A7%E9%B3%B4%E9%96%80%E6%A9%8B%E8%A8%98%E5%BF%B5%E9%A4%A8">↗ Google Maps</a></div></div></article>
-    <article class="stop"><button class="stop-head"><div class="time">17:00<br>〜17:20</div><div><div class="place">大阪へ出発</div><div class="meta">大阪着 19:15〜20:30目安</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner"><div class="tips">夕食はサービスエリアで軽く済ませるか、淡路島で買ったものを食べながらドライブ
-    </div></div></div></article>
+      <article class="stop"><button class="stop-head"><div class="time">17:00<br>〜17:20</div><div><div class="place">大阪へ出発</div><div class="meta">大阪着 19:15〜20:30目安</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner"><div class="tips">翌日仕事のため、夕食はサービスエリアで軽く済ませるか、大阪到着後に近場で短時間に。</div></div></div></article>
     </div>
   </section>
 
