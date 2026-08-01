@@ -19,12 +19,88 @@ main{padding:28px 18px 60px}.notice{background:#fff8e7;border-left:5px solid #e3
 .mapline{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0}.pin{padding:8px 12px;border-radius:999px;background:#edf2ed;font-weight:700}.arrow{color:#819087}
 @media(max-width:720px){.route-summary,.grid,.food-grid{grid-template-columns:1fr}.checklist{columns:1}header{padding-top:38px}.route-card{padding:18px}}
 @media print{body{background:#fff}.route-card,.info-card{box-shadow:none}.notice{break-inside:avoid}.stop{break-inside:avoid}}
+
+
+/* ===== Plan Switch ===== */
+
+.plan-switch{
+    display:flex;
+    justify-content:center;
+    margin:40px 0;
+    gap:12px;
+}
+
+.plan-btn{
+    border:none;
+    background:#f2f2f2;
+    color:#666;
+    padding:12px 28px;
+    border-radius:999px;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+
+.plan-btn:hover{
+    background:#e5e5e5;
+}
+
+.plan-btn.active{
+    background:#007AFF;
+    color:white;
+    box-shadow:0 6px 18px rgba(0,122,255,.25);
+}
+
+/* 内容 */
+
+.plan-content{
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(20px);
+
+    height:0;
+    overflow:hidden;
+
+    transition:
+    opacity .35s ease,
+    transform .35s ease;
+}
+
+.plan-content.active{
+
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+
+    height:auto;
+}
+
+
+
+
 </style>
 </head>
 <body>
 <header><div class="wrap">
 <h1>淡路島ドライブ</h1>
+<div class="plan-switch">
 
+<button class="plan-btn active"
+data-plan="planA">
+
+🌸 Plan A（順路優先）
+
+</button>
+
+<button class="plan-btn"
+data-plan="planB">
+
+🌤 Plan B（暑さ回避）
+
+</button>
+
+</div>
 <div class="badges"><span class="badge">大阪発 9:30〜10:00</span><span class="badge">淡路島到着 11:30〜12:00目安</span><span class="badge">屋外＋涼しい休憩</span><span class="badge">帰阪 20:00前後目標</span></div>
 </div></header>
 <main><div class="wrap">
@@ -35,7 +111,11 @@ main{padding:28px 18px 60px}.notice{background:#fff8e7;border-left:5px solid #e3
 <div class="route-card reserve"><div class="route-title">プランB｜暑さ回避・予備案</div><div class="route-line">のじまスコーラ → 伊弉諾神宮 → うずの丘 → あわじ花さじき</div><p>最も暑い時間を室内と木陰で過ごせる。ただし南端から北部へ大きく折り返すため、時間とガソリンは多め。</p><div class="small">選択条件：花さじき延長営業日／道路が空いている／うずの丘を16:00頃までに出られる日</div></div>
 </div></section>
 
+
+<div id="planA" class="plan-content active">
 <section class="section"><h2>プランA｜順路優先</h2>
+
+
 <div class="mapline"><span class="pin">大阪</span><span class="arrow">→</span><span class="pin">花さじき</span><span class="arrow">→</span><span class="pin">のじまスコーラ</span><span class="arrow">→</span><span class="pin">伊弉諾神宮</span><span class="arrow">→</span><span class="pin">うずの丘</span><span class="arrow">→</span><span class="pin">大阪</span></div>
 <div class="info-card timeline">
 <div class="stop"><div class="time">9:30〜10:00</div><div class="place">大阪で合流・出発</div><div class="meta">途中、淡路SAなどでトイレ休憩を入れてもOK。</div><div class="tips">出発前に水・スポーツドリンク・塩分タブレットを購入。車内で昼食待ちの空腹対策に小さなお菓子も。</div></div>
@@ -45,7 +125,9 @@ main{padding:28px 18px 60px}.notice{background:#fff8e7;border-left:5px solid #e3
 <div class="stop"><div class="time">16:25〜17:00</div><div class="place">うずの丘 大鳴門橋記念館</div><div class="meta">閉館17:00。おっ玉葱・展望台・ショップを優先</div><div class="tips">バーガー店は16:00までなので、この到着時間では基本的に間に合わない。写真とお土産を優先し、16:55までに車へ戻る。</div></div>
 <div class="stop"><div class="time">17:00〜17:20頃</div><div class="place">大阪へ出発</div><div class="meta">大阪着 19:15〜20:30目安（渋滞状況による）</div><div class="tips">翌日仕事なので、夕食はサービスエリアで軽く済ませるか、大阪到着後に近場で短時間に。</div></div>
 </div></section>
+</div>
 
+  <div id="planB" class="plan-content">
 <section class="section"><h2>プランB｜暑さ回避・延長営業日限定</h2>
 <div class="mapline"><span class="pin">大阪</span><span class="arrow">→</span><span class="pin">のじまスコーラ</span><span class="arrow">→</span><span class="pin">伊弉諾神宮</span><span class="arrow">→</span><span class="pin">うずの丘</span><span class="arrow">→</span><span class="pin">花さじき</span><span class="arrow">→</span><span class="pin">大阪</span></div>
 <div class="info-card timeline">
@@ -56,7 +138,9 @@ main{padding:28px 18px 60px}.notice{background:#fff8e7;border-left:5px solid #e3
 <div class="stop"><div class="time">17:20〜18:00頃</div><div class="place">あわじ花さじき</div><div class="meta">延長営業が公式に確認できた日のみ</div><div class="tips">夕方は光が柔らかく写真向き。ただし通常営業日は入園不可。到着見込みが最終入園を過ぎるなら、淡路SAの展望スポットに変更。</div></div>
 <div class="stop"><div class="time">18:00〜18:15頃</div><div class="place">大阪へ出発</div><div class="meta">大阪着 20:00〜21:15目安。翌日仕事なら21時を超えそうな時点で途中スポットを削る。</div></div>
 </div></section>
+</div>
 
+    
 <section class="section"><h2>スポット情報・住所</h2><div class="grid">
 <div class="info-card spot"><h3>兵庫県立公園 あわじ花さじき</h3><div class="address">〒656-2301 兵庫県淡路市楠本2805-7</div><ul><li>通常 9:00〜17:00（最終入園16:30）</li><li>入園無料／普通車駐車場 200円</li><li>8月上旬はひまわり、サルビア、センニチコウなどが見頃候補</li></ul></div>
 <div class="info-card spot"><h3>のじまスコーラ</h3><div class="address">〒656-1721 兵庫県淡路市野島蟇浦843</div><ul><li>水曜定休が基本</li><li>カフェ：平日ランチ11:00〜14:00、土日祝10:30〜15:00</li><li>マルシェ・ベーカリー、動物園あり</li></ul></div>
@@ -80,4 +164,31 @@ main{padding:28px 18px 60px}.notice{background:#fff8e7;border-left:5px solid #e3
 
 <div class="footer">※営業時間・定休日・メニューは2026年8月1日時点で確認した公式情報を基に作成。臨時休業・延長営業・道路状況は出発前日に各公式サイトとナビで再確認してください。移動時間は交通状況により変動します。</div>
 </div></main>
+
+
+  <script>
+
+const buttons=document.querySelectorAll(".plan-btn");
+
+const plans=document.querySelectorAll(".plan-content");
+
+buttons.forEach(button=>{
+
+button.onclick=()=>{
+
+buttons.forEach(btn=>btn.classList.remove("active"));
+
+plans.forEach(plan=>plan.classList.remove("active"));
+
+button.classList.add("active");
+
+document
+.getElementById(button.dataset.plan)
+.classList.add("active");
+
+};
+
+});
+
+</script>
 </body></html>
