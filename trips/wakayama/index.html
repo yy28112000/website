@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#edf2ef">
-<title>白浜・和歌山 1泊2日｜Family Trip</title>
+<title>白滨・和歌山 2天1夜｜Family Trip</title>
 <style>
 :root{
   --bg:#f6f7f5;--paper:#fff;--text:#252825;--sub:#707a73;
@@ -67,6 +67,21 @@ main{padding:24px 0 72px}
 .home{position:fixed;left:16px;bottom:18px;z-index:20;padding:10px 13px;border-radius:999px;background:#ffffffee;border:1px solid var(--line);color:#46604f;font-size:13px;font-weight:500;box-shadow:0 4px 18px rgba(0,0,0,.05)}
 .top{position:fixed;right:16px;bottom:18px;width:44px;height:44px;border:0;border-radius:50%;background:var(--accent);color:#fff;font-size:18px;opacity:0;pointer-events:none;transition:.2s}
 .top.show{opacity:1;pointer-events:auto}
+
+.lang-switch{
+  position:fixed;right:16px;top:16px;z-index:30;
+  display:flex;gap:4px;padding:4px;
+  background:rgba(255,255,255,.9);border:1px solid var(--line);
+  border-radius:999px;backdrop-filter:blur(12px);
+  box-shadow:0 4px 18px rgba(0,0,0,.05)
+}
+.lang-btn{
+  border:0;background:transparent;color:var(--sub);
+  padding:7px 10px;border-radius:999px;cursor:pointer;
+  font-size:12px;font-weight:500
+}
+.lang-btn.active{background:var(--accent);color:#fff}
+
 @media(max-width:720px){
   .hero{padding:40px 0 30px}.grid,.checklist{grid-template-columns:1fr}
   .stop-head{grid-template-columns:70px 1fr 20px;padding:17px 16px}
@@ -76,132 +91,152 @@ main{padding:24px 0 72px}
 </style>
 </head>
 <body>
+
+<div class="lang-switch" aria-label="语言切换">
+  <button class="lang-btn active" data-lang="zh">中文</button>
+  <button class="lang-btn" data-lang="ja">日本語</button>
+</div>
+
 <header class="hero"><div class="wrap">
-  <div class="eyebrow">SHIRAHAMA FAMILY TRIP</div>
-  <h1>白浜・和歌山 1泊2日</h1>
-  <p class="lead">マカロンと一緒に、海・温泉・海鮮・桃をゆっくり楽しむ。詰め込みすぎない夏の家族旅行。</p>
+  <div class="eyebrow" data-ja="SHIRAHAMA FAMILY TRIP" data-zh="白滨家庭旅行">白滨家庭旅行</div>
+  <h1 data-ja="白浜・和歌山 1泊2日" data-zh="白滨・和歌山 2天1夜">白滨・和歌山 2天1夜</h1>
+  <p class="lead" data-ja="マカロンと一緒に、海・温泉・海鮮・桃をゆっくり楽しむ。詰め込みすぎない夏の家族旅行。" data-zh="和马卡龙一起，悠闲享受大海、温泉、海鲜和桃子。不赶行程的夏日家庭旅行。">和马卡龙一起，悠闲享受大海、温泉、海鲜和桃子。不赶行程的夏日家庭旅行。</p>
   <div class="badges">
-    <span class="badge">1泊2日</span><span class="badge">犬連れ</span><span class="badge">白浜</span>
-    <span class="badge">海水浴</span><span class="badge">温泉</span><span class="badge">桃</span>
+    <span class="badge">2026.08.09–10</span>
+    <span class="badge" data-ja="1泊2日" data-zh="2天1夜">2天1夜</span><span class="badge" data-ja="犬連れ" data-zh="带狗">带狗</span><span class="badge" data-ja="白浜" data-zh="白滨">白滨</span>
+    <span class="badge" data-ja="海水浴" data-zh="海水浴">海水浴</span><span class="badge" data-ja="温泉" data-zh="温泉">温泉</span><span class="badge" data-ja="桃" data-zh="桃子">桃子</span>
   </div>
 </div></header>
 
 <main><div class="wrap">
-  <div class="notice"><strong>今回のルール：</strong>暑さと混雑を避ける。予定を全部こなすより、マカロンと人が快適に過ごせることを優先。りんくうアウトレットは余力がある時だけ。</div>
+  <div class="notice"><strong data-ja="今回のルール：" data-zh="这次的原则：">这次的原则：</strong data-ja="暑さと混雑を避ける。予定を全部こなすより、マカロンと人が快適に過ごせることを優先。りんくうアウトレットは余力がある時だけ。" data-zh="避开酷暑和拥挤。比起把所有计划都完成，更优先让马卡龙和家人都舒服。临空奥特莱斯只在还有体力时再去。">避开酷暑和拥挤。比起把所有计划都完成，更优先让马卡龙和家人都舒服。临空奥特莱斯只在还有体力时再去。</div>
 
   <section class="day">
-    <div class="day-head"><div class="day-label">DAY 1</div><div class="day-title">白浜で、人ものんびり遊ぶ日</div><p class="day-desc">市場 → 海 → 温泉 → 民宿ごはん → 夜のお散歩。</p></div>
+    <div class="day-head"><div class="day-label" data-ja="DAY 1" data-zh="DAY 1">DAY 1</div><div class="day-title" data-ja="白浜で、人ものんびり遊ぶ日" data-zh="在白滨，人也好好放松的一天">在白滨，人也好好放松的一天</div><p class="day-desc" data-ja="市場 → 海 → 温泉 → 民宿ごはん → 夜のお散歩。" data-zh="市场 → 海边 → 温泉 → 民宿晚饭 → 夜间散步。">市场 → 海边 → 温泉 → 民宿晚饭 → 夜间散步。</p></div>
 
-    <article class="stop open"><button class="stop-head"><div class="time">昼</div><div><div class="place">とれとれ市場</div><div class="meta">昼食｜混雑時はすぐPlan Bへ</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip">マカロンは市場内に入れないので、外の涼しい場所で1人が付き添い、交代で買い物。買ったものは車を冷やしてから車内で食べる。駐車場や店内が混みすぎていたら、無理せずShirahama Paradiseへ。</div>
-      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%82%8C%E3%81%A8%E3%82%8C%E5%B8%82%E5%A0%B4%20%E7%99%BD%E6%B5%9C">↗ Google Maps</a>
+    <article class="stop open"><button class="stop-head"><div class="time" data-ja="昼" data-zh="中午">中午</div><div><div class="place" data-ja="とれとれ市場" data-zh="Toretore市场">Toretore市场</div><div class="meta" data-ja="昼食｜混雑時はすぐPlan Bへ" data-zh="午饭｜太拥挤就立刻切换Plan B">午饭｜太拥挤就立刻切换Plan B</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip" data-ja="マカロンは市場内に入れないので、外の涼しい場所で1人が付き添い、交代で買い物。買ったものは車を冷やしてから車内で食べる。駐車場や店内が混みすぎていたら、無理せずShirahama Paradiseへ。" data-zh="马卡龙不能进入市场，所以由一人在外面阴凉处陪它，其他人轮流进去买。买好后先把车内降温，再到车里吃。如果停车场或店内太拥挤，就不要硬等，直接去 Shirahama Paradise。">马卡龙不能进入市场，所以由一人在外面阴凉处陪它，其他人轮流进去买。买好后先把车内降温，再到车里吃。如果停车场或店内太拥挤，就不要硬等，直接去 Shirahama Paradise。</div>
+      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%81%A8%E3%82%8C%E3%81%A8%E3%82%8C%E5%B8%82%E5%A0%B4%20%E7%99%BD%E6%B5%9C" data-ja="↗ Google Maps" data-zh="↗ Google Maps">↗ Google Maps</a>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">午後</div><div><div class="place">Airbnb チェックイン</div><div class="meta">荷物を置く・マカロンを休ませる</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip">水を出し、室温を整えて、まずは部屋に慣れさせる。海水浴中は安全な室内で休ませる。</div>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="午後" data-zh="下午">下午</div><div><div class="place" data-ja="Airbnb チェックイン" data-zh="Airbnb 入住">Airbnb 入住</div><div class="meta" data-ja="荷物を置く・マカロンを休ませる" data-zh="放行李・让马卡龙休息">放行李・让马卡龙休息</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip" data-ja="水を出し、室温を整えて、まずは部屋に慣れさせる。海水浴中は安全な室内で休ませる。" data-zh="准备好饮水、调好室温，先让马卡龙熟悉房间。我们去海水浴时，让它在安全的室内休息。">准备好饮水、调好室温，先让马卡龙熟悉房间。我们去海水浴时，让它在安全的室内休息。</div>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">15:00<br>前後</div><div><div class="place">白良浜海水浴場</div><div class="meta">人だけで海水浴｜60〜90分</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip sea">今回はマカロンは民宿でお留守番。防水の日焼け止めを塗り、泳いだ後は無理に長居せず温泉へ。</div>
-      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%99%BD%E8%89%AF%E6%B5%9C%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">↗ Google Maps</a>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="15:00&lt;br&gt;前後" data-zh="15:00&lt;br&gt;左右">15:00<br>左右</div><div><div class="place" data-ja="白良浜海水浴場" data-zh="白良滨海水浴场">白良滨海水浴场</div><div class="meta" data-ja="人だけで海水浴｜60〜90分" data-zh="人去玩海｜60～90分钟">人去玩海｜60～90分钟</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip sea" data-ja="今回はマカロンは民宿でお留守番。防水の日焼け止めを塗り、泳いだ後は無理に長居せず温泉へ。" data-zh="这次马卡龙留在民宿。涂好防水防晒霜，游完不要逗留太久，直接去泡温泉。">这次马卡龙留在民宿。涂好防水防晒霜，游完不要逗留太久，直接去泡温泉。</div>
+      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E7%99%BD%E8%89%AF%E6%B5%9C%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4" data-ja="↗ Google Maps" data-zh="↗ Google Maps">↗ Google Maps</a>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">夕方</div><div><div class="place">INFINITO HOTEL & SPA 南紀白浜</div><div class="meta">日帰り温泉｜海のあとにゆっくり</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip">日帰り入浴の受付時間・三連休の利用可否は当日または前日に確認。混雑していたら無理に粘らない。</div>
-      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=INFINITO%20HOTEL%20%26%20SPA%20%E5%8D%97%E7%B4%80%E7%99%BD%E6%B5%9C">↗ Google Maps</a>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="夕方" data-zh="傍晚">傍晚</div><div><div class="place">INFINITO HOTEL & SPA 南紀白浜</div><div class="meta" data-ja="日帰り温泉｜海のあとにゆっくり" data-zh="日归温泉｜玩海之后慢慢泡">日归温泉｜玩海之后慢慢泡</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip" data-ja="日帰り入浴の受付時間・三連休の利用可否は当日または前日に確認。混雑していたら無理に粘らない。" data-zh="日归温泉的接待时间、三连休是否可用，最好当天或前一天确认。如果太拥挤就不要硬等。">日归温泉的接待时间、三连休是否可用，最好当天或前一天确认。如果太拥挤就不要硬等。</div>
+      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=INFINITO%20HOTEL%20%26%20SPA%20%E5%8D%97%E7%B4%80%E7%99%BD%E6%B5%9C" data-ja="↗ Google Maps" data-zh="↗ Google Maps">↗ Google Maps</a>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">18:30<br>前後</div><div><div class="place">民宿へ戻る</div><div class="meta">マカロンのごはん・全員休憩</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip">最低45分ほど余白を取る。マカロンにごはんと水を与え、落ち着いてから夕食。</div>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="18:30&lt;br&gt;前後" data-zh="18:30&lt;br&gt;左右">18:30<br>左右</div><div><div class="place" data-ja="民宿へ戻る" data-zh="回民宿">回民宿</div><div class="meta" data-ja="マカロンのごはん・全員休憩" data-zh="喂马卡龙・全员休息">喂马卡龙・全员休息</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip" data-ja="最低45分ほど余白を取る。マカロンにごはんと水を与え、落ち着いてから夕食。" data-zh="至少留出约45分钟。先给马卡龙喂饭、喝水，大家休息稳定后再吃晚饭。">至少留出约45分钟。先给马卡龙喂饭、喝水，大家休息稳定后再吃晚饭。</div>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">夜</div><div><div class="place">民宿で海鮮ごはん</div><div class="meta">伊勢海老・当日の魚介を優先</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip sand">事前に店主へ「当日の海鮮・伊勢海老の有無、価格、量、調理方法」を確認。条件が良ければ外食よりこちらを優先。なければ近場で海鮮や居酒屋へ。</div>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="夜" data-zh="晚上">晚上</div><div><div class="place" data-ja="民宿で海鮮ごはん" data-zh="民宿海鲜晚饭">民宿海鲜晚饭</div><div class="meta" data-ja="伊勢海老・当日の魚介を優先" data-zh="优先伊势龙虾・当天海鲜">优先伊势龙虾・当天海鲜</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip sand" data-ja="事前に店主へ「当日の海鮮・伊勢海老の有無、価格、量、調理方法」を確認。条件が良ければ外食よりこちらを優先。なければ近場で海鮮や居酒屋へ。" data-zh="提前向店主确认“当天有什么海鲜/伊势龙虾、价格、分量和处理方式”。如果条件不错，就优先在民宿吃；如果没有，再去附近吃海鲜或居酒屋。">提前向店主确认“当天有什么海鲜/伊势龙虾、价格、分量和处理方式”。如果条件不错，就优先在民宿吃；如果没有，再去附近吃海鲜或居酒屋。</div>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">20:00<br>以降</div><div><div class="place">マカロンと夜のお散歩</div><div class="meta">白良浜周辺・海沿い｜涼しい範囲だけ</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip">目的地は決めない。暑さが落ち着いてから、匂いを嗅ぎながら短めに散歩。疲れていたら民宿周辺だけでOK。</div>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="20:00&lt;br&gt;以降" data-zh="20:00&lt;br&gt;以后">20:00<br>以后</div><div><div class="place" data-ja="マカロンと夜のお散歩" data-zh="和马卡龙夜间散步">和马卡龙夜间散步</div><div class="meta" data-ja="白良浜周辺・海沿い｜涼しい範囲だけ" data-zh="白良滨周边・海边｜只走凉快的范围">白良滨周边・海边｜只走凉快的范围</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip" data-ja="目的地は決めない。暑さが落ち着いてから、匂いを嗅ぎながら短めに散歩。疲れていたら民宿周辺だけでOK。" data-zh="不设固定目的地。天气凉下来后，让它边闻边慢慢走，短一点就好。累了就在民宿附近散步即可。">不设固定目的地。天气凉下来后，让它边闻边慢慢走，短一点就好。累了就在民宿附近散步即可。</div>
     </div></div></article>
   </section>
 
   <section class="day">
-    <div class="day-head"><div class="day-label">DAY 2</div><div class="day-title">マカロンの海と、桃を買って帰る日</div><p class="day-desc">朝の涼しい海 → 退房 → めっけもん広場 → 余力があればアウトレット。</p></div>
+    <div class="day-head"><div class="day-label" data-ja="DAY 2" data-zh="DAY 2">DAY 2</div><div class="day-title" data-ja="マカロンの海と、桃を買って帰る日" data-zh="马卡龙玩海＋买桃回家的一天">马卡龙玩海＋买桃回家的一天</div><p class="day-desc" data-ja="朝の涼しい海 → 退房 → めっけもん広場 → 余力があればアウトレット。" data-zh="清晨凉爽的海边 → 退房 → Mekkemon广场 → 有体力再去奥特莱斯。">清晨凉爽的海边 → 退房 → Mekkemon广场 → 有体力再去奥特莱斯。</p></div>
 
-    <article class="stop open"><button class="stop-head"><div class="time">7:00<br>〜8:30</div><div><div class="place">江津良浜海水浴場</div><div class="meta">マカロンと海｜朝の涼しい時間</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip sea">目標は「泳がせる」ではなく「海を好きになってもらう」。砂→波打ち際→足だけ水、の順で様子を見る。嫌がったらすぐやめる。</div>
-      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B1%9F%E6%B4%A5%E8%89%AF%E6%B5%9C%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4">↗ Google Maps</a>
+    <article class="stop open"><button class="stop-head"><div class="time" data-ja="7:00&lt;br&gt;〜8:30" data-zh="7:00&lt;br&gt;～8:30">7:00<br>～8:30</div><div><div class="place" data-ja="江津良浜海水浴場" data-zh="江津良滨海水浴场">江津良滨海水浴场</div><div class="meta" data-ja="マカロンと海｜朝の涼しい時間" data-zh="马卡龙和大海｜清晨凉快时段">马卡龙和大海｜清晨凉快时段</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip sea" data-ja="目標は「泳がせる」ではなく「海を好きになってもらう」。砂→波打ち際→足だけ水、の順で様子を見る。嫌がったらすぐやめる。" data-zh="目标不是“让它学会游泳”，而是“让它喜欢上海边”。按沙滩 → 浪边 → 只让脚碰水的顺序慢慢观察；如果害怕就马上停止。">目标不是“让它学会游泳”，而是“让它喜欢上海边”。按沙滩 → 浪边 → 只让脚碰水的顺序慢慢观察；如果害怕就马上停止。</div>
+      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E6%B1%9F%E6%B4%A5%E8%89%AF%E6%B5%9C%E6%B5%B7%E6%B0%B4%E6%B5%B4%E5%A0%B4" data-ja="↗ Google Maps" data-zh="↗ Google Maps">↗ Google Maps</a>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">9:00<br>〜午前</div><div><div class="place">民宿へ戻る・朝食・退房</div><div class="meta">砂と塩を落としてゆっくり準備</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip">マカロンの足、お腹、毛についた砂と海水をよく流す。朝食後に荷物をまとめて退房。</div>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="9:00&lt;br&gt;〜午前" data-zh="9:00&lt;br&gt;～上午">9:00<br>～上午</div><div><div class="place" data-ja="民宿へ戻る・朝食・退房" data-zh="回民宿・早餐・退房">回民宿・早餐・退房</div><div class="meta" data-ja="砂と塩を落としてゆっくり準備" data-zh="冲掉沙和盐，再慢慢收拾">冲掉沙和盐，再慢慢收拾</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip" data-ja="マカロンの足、お腹、毛についた砂と海水をよく流す。朝食後に荷物をまとめて退房。" data-zh="把马卡龙脚、肚子和毛上的沙子、海水冲干净。吃完早餐后收拾行李退房。">把马卡龙脚、肚子和毛上的沙子、海水冲干净。吃完早餐后收拾行李退房。</div>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">午後</div><div><div class="place">めっけもん広場</div><div class="meta">桃・野菜・果物を購入</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip sand">桃は家庭用もチェック。保冷バッグ／クーラーボックスに入れるが、保冷剤を桃へ直接当てない。車内に長時間放置しない。</div>
-      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%81%E3%81%A3%E3%81%91%E3%82%82%E3%82%93%E5%BA%83%E5%A0%B4">↗ Google Maps</a>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="午後" data-zh="下午">下午</div><div><div class="place" data-ja="めっけもん広場" data-zh="Mekkemon广场">Mekkemon广场</div><div class="meta" data-ja="桃・野菜・果物を購入" data-zh="买桃子・蔬菜・水果">买桃子・蔬菜・水果</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip sand" data-ja="桃は家庭用もチェック。保冷バッグ／クーラーボックスに入れるが、保冷剤を桃へ直接当てない。車内に長時間放置しない。" data-zh="也看看家庭装桃子。放进保冷袋/保冷箱，但不要让冰袋直接接触桃子，也不要长时间放在高温车内。">也看看家庭装桃子。放进保冷袋/保冷箱，但不要让冰袋直接接触桃子，也不要长时间放在高温车内。</div>
+      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%81%E3%81%A3%E3%81%91%E3%82%82%E3%82%93%E5%BA%83%E5%A0%B4" data-ja="↗ Google Maps" data-zh="↗ Google Maps">↗ Google Maps</a>
     </div></div></article>
 
-    <article class="stop"><button class="stop-head"><div class="time">OPTION</div><div><div class="place">りんくうプレミアム・アウトレット</div><div class="meta">元気があれば寄る｜疲れたらそのまま帰宅</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
-      <div class="tip">完全なボーナス枠。桃の温度管理ができていて、家族もマカロンも元気な時だけ。無理に行かない。</div>
-      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%8A%E3%82%93%E3%81%8F%E3%81%86%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E3%83%BB%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AC%E3%83%83%E3%83%88">↗ Google Maps</a>
+    <article class="stop"><button class="stop-head"><div class="time" data-ja="OPTION" data-zh="备选">备选</div><div><div class="place" data-ja="りんくうプレミアム・アウトレット" data-zh="临空Premium Outlets">临空Premium Outlets</div><div class="meta" data-ja="元気があれば寄る｜疲れたらそのまま帰宅" data-zh="有体力就去｜累了就直接回家">有体力就去｜累了就直接回家</div></div><div class="chev">⌄</div></button><div class="stop-body"><div class="stop-inner">
+      <div class="tip" data-ja="完全なボーナス枠。桃の温度管理ができていて、家族もマカロンも元気な時だけ。無理に行かない。" data-zh="完全是加分项。只有桃子的温度管理没问题、家人和马卡龙也还有精神时再去，不要勉强。">完全是加分项。只有桃子的温度管理没问题、家人和马卡龙也还有精神时再去，不要勉强。</div>
+      <a class="map-btn" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=%E3%82%8A%E3%82%93%E3%81%8F%E3%81%86%E3%83%97%E3%83%AC%E3%83%9F%E3%82%A2%E3%83%A0%E3%83%BB%E3%82%A2%E3%82%A6%E3%83%88%E3%83%AC%E3%83%83%E3%83%88" data-ja="↗ Google Maps" data-zh="↗ Google Maps">↗ Google Maps</a>
     </div></div></article>
   </section>
 
-  <section class="section"><h2>Plan B・判断ルール</h2><div class="grid">
-    <div class="card"><h3>とれとれ市場が混雑</h3><p>駐車や入店待ちがストレスになりそうなら、Shirahama Paradiseのバーガーへ切替。市場にこだわらない。</p></div>
-    <div class="card"><h3>アウトレットは任意</h3><p>二日目に疲れていたら、めっけもん広場から大阪へ直帰。今回の満足度には影響しない。</p></div>
+  <section class="section"><h2 data-ja="Plan B・判断ルール" data-zh="Plan B・判断规则">Plan B・判断规则</h2><div class="grid">
+    <div class="card"><h3 data-ja="とれとれ市場が混雑" data-zh="Toretore市场太拥挤">Toretore市场太拥挤</h3><p data-ja="駐車や入店待ちがストレスになりそうなら、Shirahama Paradiseのバーガーへ切替。市場にこだわらない。" data-zh="如果停车或排队已经开始让人烦躁，就切换到 Shirahama Paradise 吃汉堡，不必执着于市场。">如果停车或排队已经开始让人烦躁，就切换到 Shirahama Paradise 吃汉堡，不必执着于市场。</p></div>
+    <div class="card"><h3 data-ja="アウトレットは任意" data-zh="奥特莱斯是可选项">奥特莱斯是可选项</h3><p data-ja="二日目に疲れていたら、めっけもん広場から大阪へ直帰。今回の満足度には影響しない。" data-zh="第二天如果累了，就从 Mekkemon 广场直接回大阪，不会影响这次旅行的满意度。">第二天如果累了，就从 Mekkemon 广场直接回大阪，不会影响这次旅行的满意度。</p></div>
   </div></section>
 
-  <section class="section"><h2>持ち物チェックリスト</h2><div class="card">
+  <section class="section"><h2 data-ja="持ち物チェックリスト" data-zh="行李清单">行李清单</h2><div class="card">
     <div class="checklist" id="packing">
-      <label class="check-item"><input type="checkbox" value="phone"><span>スマホ・財布・運転免許証</span></label>
-      <label class="check-item"><input type="checkbox" value="battery"><span>モバイルバッテリー・充電ケーブル</span></label>
-      <label class="check-item"><input type="checkbox" value="meds"><span>酔い止め・胃薬・鎮痛薬・常備薬</span></label>
-      <label class="check-item"><input type="checkbox" value="sun"><span>ウォータープルーフの日焼け止め</span></label>
-      <label class="check-item"><input type="checkbox" value="hat"><span>帽子・サングラス・日傘</span></label>
-      <label class="check-item"><input type="checkbox" value="swim"><span>水着・サンダル・着替え</span></label>
-      <label class="check-item"><input type="checkbox" value="towel"><span>大判タオル・小タオル</span></label>
-      <label class="check-item"><input type="checkbox" value="wetbag"><span>濡れた水着用の防水袋・ビニール袋</span></label>
-      <label class="check-item"><input type="checkbox" value="toiletries"><span>洗面用品・スキンケア・化粧品・くし</span></label>
-      <label class="check-item"><input type="checkbox" value="drink"><span>人用の水・飲み物・軽いおやつ</span></label>
+      <label class="check-item"><input type="checkbox" value="phone"><span data-ja="スマホ・財布・運転免許証" data-zh="手机・钱包・驾驶证">手机・钱包・驾驶证</span></label>
+      <label class="check-item"><input type="checkbox" value="battery"><span data-ja="モバイルバッテリー・充電ケーブル" data-zh="充电宝・充电线">充电宝・充电线</span></label>
+      <label class="check-item"><input type="checkbox" value="meds"><span data-ja="酔い止め・胃薬・鎮痛薬・常備薬" data-zh="晕车药・胃药・止痛药・常用药">晕车药・胃药・止痛药・常用药</span></label>
+      <label class="check-item"><input type="checkbox" value="sun"><span data-ja="ウォータープルーフの日焼け止め" data-zh="防水防晒霜">防水防晒霜</span></label>
+      <label class="check-item"><input type="checkbox" value="hat"><span data-ja="帽子・サングラス・日傘" data-zh="帽子・太阳镜・遮阳伞">帽子・太阳镜・遮阳伞</span></label>
+      <label class="check-item"><input type="checkbox" value="swim"><span data-ja="水着・サンダル・着替え" data-zh="泳衣・凉鞋・换洗衣物">泳衣・凉鞋・换洗衣物</span></label>
+      <label class="check-item"><input type="checkbox" value="towel"><span data-ja="大判タオル・小タオル" data-zh="大浴巾・小毛巾">大浴巾・小毛巾</span></label>
+      <label class="check-item"><input type="checkbox" value="wetbag"><span data-ja="濡れた水着用の防水袋・ビニール袋" data-zh="装湿泳衣的防水袋・塑料袋">装湿泳衣的防水袋・塑料袋</span></label>
+      <label class="check-item"><input type="checkbox" value="toiletries"><span data-ja="洗面用品・スキンケア・化粧品・くし" data-zh="洗漱用品・护肤品・化妆品・梳子">洗漱用品・护肤品・化妆品・梳子</span></label>
+      <label class="check-item"><input type="checkbox" value="drink"><span data-ja="人用の水・飲み物・軽いおやつ" data-zh="人用饮水・饮料・简单零食">人用饮水・饮料・简单零食</span></label>
 
-      <label class="check-item"><input type="checkbox" value="dogfood"><span>マカロンのごはん＋予備1〜2食</span></label>
-      <label class="check-item"><input type="checkbox" value="dogsnack"><span>犬用おやつ</span></label>
-      <label class="check-item"><input type="checkbox" value="dogwater"><span>犬用の水・折りたたみ水皿</span></label>
-      <label class="check-item"><input type="checkbox" value="lead"><span>ハーネス・リード</span></label>
-      <label class="check-item"><input type="checkbox" value="toilet"><span>トイレシート・うんち袋</span></label>
-      <label class="check-item"><input type="checkbox" value="dogtowel"><span>マカロン用タオル×2</span></label>
-      <label class="check-item"><input type="checkbox" value="dogwipe"><span>ペット用ウェットティッシュ</span></label>
-      <label class="check-item"><input type="checkbox" value="dogbed"><span>家の匂いがする小さな毛布・マット</span></label>
-      <label class="check-item"><input type="checkbox" value="carrier"><span>キャリー／ペットカート</span></label>
-      <label class="check-item"><input type="checkbox" value="vaccine"><span>ワクチン証明の写真</span></label>
+      <label class="check-item"><input type="checkbox" value="dogfood"><span data-ja="マカロンのごはん＋予備1〜2食" data-zh="马卡龙狗粮＋备用1～2餐">马卡龙狗粮＋备用1～2餐</span></label>
+      <label class="check-item"><input type="checkbox" value="dogsnack"><span data-ja="犬用おやつ" data-zh="狗狗零食">狗狗零食</span></label>
+      <label class="check-item"><input type="checkbox" value="dogwater"><span data-ja="犬用の水・折りたたみ水皿" data-zh="狗狗饮水・折叠水碗">狗狗饮水・折叠水碗</span></label>
+      <label class="check-item"><input type="checkbox" value="lead"><span data-ja="ハーネス・リード" data-zh="胸背・牵引绳">胸背・牵引绳</span></label>
+      <label class="check-item"><input type="checkbox" value="toilet"><span data-ja="トイレシート・うんち袋" data-zh="尿垫・便便袋">尿垫・便便袋</span></label>
+      <label class="check-item"><input type="checkbox" value="dogtowel"><span data-ja="マカロン用タオル×2" data-zh="马卡龙用毛巾×2">马卡龙用毛巾×2</span></label>
+      <label class="check-item"><input type="checkbox" value="dogwipe"><span data-ja="ペット用ウェットティッシュ" data-zh="宠物湿巾">宠物湿巾</span></label>
+      <label class="check-item"><input type="checkbox" value="dogbed"><span data-ja="家の匂いがする小さな毛布・マット" data-zh="有家里味道的小毯子・垫子">有家里味道的小毯子・垫子</span></label>
+      <label class="check-item"><input type="checkbox" value="carrier"><span data-ja="キャリー／ペットカート" data-zh="宠物包／宠物推车">宠物包／宠物推车</span></label>
+      <label class="check-item"><input type="checkbox" value="vaccine"><span data-ja="ワクチン証明の写真" data-zh="疫苗证明照片">疫苗证明照片</span></label>
 
-      <label class="check-item"><input type="checkbox" value="cooler"><span>クーラーボックス／厚手の保冷バッグ</span></label>
-      <label class="check-item"><input type="checkbox" value="ice"><span>保冷剤＋桃を守るタオル／紙</span></label>
-      <label class="check-item"><input type="checkbox" value="trash"><span>ゴミ袋・ウェットティッシュ</span></label>
-      <label class="check-item"><input type="checkbox" value="rinse"><span>海帰りの足・犬を流す予備の水</span></label>
+      <label class="check-item"><input type="checkbox" value="cooler"><span data-ja="クーラーボックス／厚手の保冷バッグ" data-zh="保冷箱／厚保冷袋">保冷箱／厚保冷袋</span></label>
+      <label class="check-item"><input type="checkbox" value="ice"><span data-ja="保冷剤＋桃を守るタオル／紙" data-zh="冰袋＋保护桃子的毛巾／纸">冰袋＋保护桃子的毛巾／纸</span></label>
+      <label class="check-item"><input type="checkbox" value="trash"><span data-ja="ゴミ袋・ウェットティッシュ" data-zh="垃圾袋・湿巾">垃圾袋・湿巾</span></label>
+      <label class="check-item"><input type="checkbox" value="rinse"><span data-ja="海帰りの足・犬を流す予備の水" data-zh="海边回来冲脚和狗狗用的备用水">海边回来冲脚和狗狗用的备用水</span></label>
     </div>
     <div class="tools">
-      <button class="mini-btn" id="reset">チェックをリセット</button>
-      <button class="mini-btn" onclick="window.print()">印刷・PDF保存</button>
+      <button class="mini-btn" id="reset" data-ja="チェックをリセット" data-zh="重置勾选">重置勾选</button>
+      <button class="mini-btn" onclick="window.print()" data-ja="印刷・PDF保存" data-zh="打印・保存PDF">打印・保存PDF</button>
     </div>
   </div></section>
 
-  <section class="section"><h2>出発前の最終10項目</h2><div class="card">
+  <section class="section"><h2 data-ja="出発前の最終10項目" data-zh="出发前最后10项">出发前最后10项</h2><div class="card">
     <div class="chips">
-      <span class="chip">スマホ</span><span class="chip">財布</span><span class="chip">免許証</span><span class="chip">モバイルバッテリー</span>
-      <span class="chip">水着</span><span class="chip">防水日焼け止め</span><span class="chip">薬</span><span class="chip">犬ごはん</span>
-      <span class="chip">リード</span><span class="chip">クーラーボックス</span>
+      <span class="chip" data-ja="スマホ" data-zh="手机">手机</span><span class="chip" data-ja="財布" data-zh="钱包">钱包</span><span class="chip" data-ja="免許証" data-zh="驾驶证">驾驶证</span><span class="chip" data-ja="モバイルバッテリー" data-zh="充电宝">充电宝</span>
+      <span class="chip" data-ja="水着" data-zh="泳衣">泳衣</span><span class="chip" data-ja="防水日焼け止め" data-zh="防水防晒">防水防晒</span><span class="chip" data-ja="薬" data-zh="药">药</span><span class="chip" data-ja="犬ごはん" data-zh="狗粮">狗粮</span>
+      <span class="chip" data-ja="リード" data-zh="牵引绳">牵引绳</span><span class="chip" data-ja="クーラーボックス" data-zh="保冷箱">保冷箱</span>
     </div>
   </div></section>
 
-  <div class="footer">※営業時間・ペット同伴条件・日帰り温泉受付・海水浴場ルールは当日変更の可能性があります。出発前に公式情報を再確認してください。</div>
+  <div class="footer" data-ja="※営業時間・ペット同伴条件・日帰り温泉受付・海水浴場ルールは当日変更の可能性があります。出発前に公式情報を再確認してください。" data-zh="※营业时间、宠物同行条件、日归温泉接待和海水浴场规则可能临时调整，出发前请再次确认官方信息。">※营业时间、宠物同行条件、日归温泉接待和海水浴场规则可能临时调整，出发前请再次确认官方信息。</div>
 </div></main>
 
-<a class="home" href="../../">← 旅行一覧</a>
+<a class="home" href="../../" data-ja="← 旅行一覧" data-zh="← 旅行列表">← 旅行列表</a>
 <button class="top" id="topBtn" aria-label="ページ上部へ">↑</button>
 
 <script>
+
+const langButtons=[...document.querySelectorAll('.lang-btn')];
+function setLanguage(lang){
+  document.documentElement.lang=lang==='zh'?'zh-CN':'ja';
+  document.querySelectorAll('[data-ja][data-zh]').forEach(el=>{
+    el.innerHTML=el.dataset[lang];
+  });
+  langButtons.forEach(b=>b.classList.toggle('active',b.dataset.lang===lang));
+  localStorage.setItem('wakayamaLanguage',lang);
+}
+langButtons.forEach(b=>b.addEventListener('click',()=>setLanguage(b.dataset.lang)));
+setLanguage(localStorage.getItem('wakayamaLanguage')||'zh');
+
 document.querySelectorAll('.stop').forEach(stop=>{
   const btn=stop.querySelector('.stop-head'),body=stop.querySelector('.stop-body');
   const sync=()=>body.style.maxHeight=stop.classList.contains('open')?body.scrollHeight+'px':'0px';
